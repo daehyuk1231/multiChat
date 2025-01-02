@@ -1,9 +1,7 @@
 package com.ll.multiChat.domain.chat.ChatRoom.entity;
 
 import com.ll.multiChat.domain.chat.ChatMessage.entity.ChatMessage;
-import com.ll.multiChat.domain.chat.ChatMessage.service.ChatMessageService;
 import com.ll.multiChat.global.baseEntity.BaseEntity;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import lombok.*;
@@ -24,5 +22,5 @@ public class ChatRoom extends BaseEntity {
     private String name;
 
     @OneToMany
-    private List<ChatMessage> ChatMessage;
+    private List<ChatMessage> chatMessages;
 }
