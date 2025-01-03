@@ -23,4 +23,15 @@ public class ChatRoom extends BaseEntity {
 
     @OneToMany
     private List<ChatMessage> chatMessages;
+
+    public void writeMessage(String writerName, String content) {
+        ChatMessage chatMessage = ChatMessage.builder()
+                .chatRoom(this)
+                .writerName(writerName)
+                .content(content)
+                .build();
+
+        chatMessages.add(chatMessage);
+    }
+
 }

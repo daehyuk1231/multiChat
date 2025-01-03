@@ -1,9 +1,13 @@
 package com.ll.multiChat.domain.chat.ChatRoom.controller;
 
+import com.ll.multiChat.domain.chat.ChatRoom.entity.ChatRoom;
 import com.ll.multiChat.domain.chat.ChatRoom.service.ChatRoomService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -15,7 +19,7 @@ public class ChatRoomController {
     @ResponseBody
     public String showRoom(@PathVariable long roomId, @RequestParam(defaultValue = "NoName") String writerName) {
 
-        return String.format("%d 번 채팅방 입니다. writer : %s", roomId, writerName);
+        return "domain/chat/chatRoom/room";
     }
 
     @GetMapping("/make")
@@ -23,4 +27,11 @@ public class ChatRoomController {
         return "domain/chat/chatRoom/make";
     }
 
+    @GetMapping("/list")
+    public String roomlist(Model model) {
+        List<ChatRoom> chatRooms = chatRoomService.getList();
+
+        model.addAttribute("chatRooms", chatRooms);
+        return "domain/chat/chatRoom/list";
+    }
 }
