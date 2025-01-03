@@ -5,6 +5,8 @@ import com.ll.multiChat.domain.chat.ChatRoom.repository.ChatRoomRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class ChatRoomService {
@@ -20,7 +22,7 @@ public class ChatRoomService {
         return chatRoom;
     }
 
-    public void getList() {
+    public List<ChatRoom> getList() {
         return chatRoomRepository.findAll();
     }
 

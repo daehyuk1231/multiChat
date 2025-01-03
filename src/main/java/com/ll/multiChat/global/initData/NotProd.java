@@ -22,7 +22,6 @@ public class NotProd {
             IntStream.rangeClosed(1, 100).forEach(num -> {
             });
 
-            System.out.println("Not Prod");
         };
     }
 }

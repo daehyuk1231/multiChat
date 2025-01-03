@@ -23,8 +23,14 @@ public class ChatRoomController {
     }
 
     @GetMapping("/make")
-    public String makeRoom() {
+    public String showMakeRoom() {
         return "domain/chat/chatRoom/make";
+    }
+
+    @GetMapping("/make")
+    public String makeRoom(String name) {
+        chatRoomService.make(name);
+        return "domain/chat/room/list";
     }
 
     @GetMapping("/list")
