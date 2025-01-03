@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -26,4 +27,7 @@ public class ChatRoomService {
         return chatRoomRepository.findAll();
     }
 
+    public Optional<ChatRoom> findById(long roomId) {
+        return chatRoomRepository.findById(roomId);
+    }
 }
